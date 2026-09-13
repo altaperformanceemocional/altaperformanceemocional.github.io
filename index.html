@@ -559,6 +559,7 @@ body.menu-aberto .hamburger span:nth-child(3){transform:translateY(-7px) rotate(
   background:#fff;border:1px solid var(--hair);border-radius:10px;
   padding:26px 24px 22px;text-align:center;
   display:flex;flex-direction:column;align-items:center;gap:14px;
+  color:inherit;text-decoration:none;
   transition:transform .5s cubic-bezier(.2,.7,.3,1),box-shadow .5s;
 }
 .parceiro:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(11,13,18,.09)}
@@ -724,33 +725,6 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
   .reveal{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
-
-/* ---------- 05 . momento de musica ---------- */
-.musica{background:var(--tinta-2);color:var(--prata-alto);position:relative;overflow:hidden}
-.musica::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(120% 90% at 82% 12%, rgba(226,84,42,.18), transparent 58%);pointer-events:none}
-.musica .container{position:relative}
-.musica-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,84px);align-items:center}
-.musica .kicker{color:var(--laranja-suave)}
-.musica h2{color:var(--prata-alto);margin-top:10px}
-.musica h2 em{color:var(--laranja-claro);font-style:italic}
-.musica-lead{font-size:clamp(17px,1.45vw,20px);line-height:1.62;color:#D9D7D4;margin-top:22px;max-width:56ch}
-.musica-nome{font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);line-height:1.1;color:var(--prata-alto)}
-.musica-papel{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--laranja-suave);margin-bottom:12px}
-/* Retrato do pianista: reaproveita o arco de .p-retrato dos palestrantes.
-   So a moldura e o enquadramento mudam, porque aqui o fundo e escuro e o
-   rosto esta acima e a esquerda do centro da fotografia original. */
-.musica-perfil{display:flex;align-items:center;gap:clamp(18px,2.4vw,30px)}
-.musica-retrato{flex:none;max-width:clamp(104px,11vw,138px);border-color:rgba(243,241,239,.18)}
-.musica-retrato img{object-position:44% 16%}
-.musica-perfil .musica-papel{margin-bottom:8px}
-.musica-bio{color:#BFBDBA;line-height:1.65;margin-top:18px;max-width:52ch}
-.musica-provas{list-style:none;margin:26px 0 0;padding:0;border-top:1px solid rgba(243,241,239,.14)}
-.musica-provas li{display:flex;gap:18px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(243,241,239,.14)}
-.musica-provas .ano{font-family:var(--serif);font-size:20px;color:var(--laranja-claro);min-width:74px;font-variant-numeric:tabular-nums}
-.musica-provas .facto{color:#D9D7D4;line-height:1.5}
-.musica-nota{margin-top:26px;padding-left:18px;border-left:2px solid var(--laranja);color:#EDEBE8;font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.5}
-@media (max-width:900px){.musica-grid{grid-template-columns:1fr;gap:34px}}
 
 .ticket-disponivel{font-family:var(--sans);font-size:13.5px;line-height:1.5;color:var(--texto-suave);
   margin-top:16px;padding-top:14px;border-top:1px solid var(--hair)}
@@ -1178,43 +1152,11 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
 </section>
 
 
-<!-- ==================== 05 . MOMENTO DE MUSICA ==================== -->
-<section class="sec musica" id="musica">
-  <div class="container">
-    <div class="musica-grid">
-
-      <div class="reveal">
-        <p class="kicker">06 &middot; Um momento &agrave; parte</p>
-        <h2>Piano ao vivo,<br><em>no meio do dia.</em></h2>
-        <p class="musica-lead">H&aacute; coisas que nenhuma palestra consegue fazer. A m&uacute;sica ao vivo &eacute; uma delas. N&atilde;o vem para preencher um intervalo: vem para abrir aquilo que as palavras s&oacute; conseguem explicar.</p>
-        <p class="musica-nota">O que se ouve com os ouvidos entra pela cabe&ccedil;a. O que se ouve ao vivo entra pelo peito.</p>
-      </div>
-
-      <div class="reveal" style="transition-delay:.12s">
-        <div class="musica-perfil">
-          <div class="p-retrato musica-retrato"><img src="assets/jose-veloso-rito.jpg" alt="Jos&eacute; Veloso Rito ao piano" loading="lazy" width="662" height="1066"></div>
-          <div>
-            <p class="musica-papel">Convidado especial &middot; Piano</p>
-            <p class="musica-nome">Jos&eacute; Veloso Rito</p>
-          </div>
-        </div>
-        <p class="musica-bio">Pianista e compositor, com um percurso iniciado em <strong>1962</strong>. Dedica-se ao piano cl&aacute;ssico e contempor&acirc;neo e interpreta sobretudo <strong>obras da sua autoria</strong>: sonatas, tocatas, baladas e prel&uacute;dios. Ao longo do percurso tem cruzado a m&uacute;sica com a poesia e com outras express&otilde;es art&iacute;sticas.</p>
-        <ul class="musica-provas">
-          <li><span class="ano">60 anos</span><span class="facto">de percurso dedicado ao piano, desde 1962</span></li>
-          <li><span class="ano">2024</span><span class="facto">Recital na Funda&ccedil;&atilde;o Eng. Ant&oacute;nio de Almeida, Porto</span></li>
-          <li><span class="ano">2002</span><span class="facto">Concerto nos Estados Unidos, em Boston</span></li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ==================== 05 · BILHETES ==================== -->
 <section class="sec sec-creme" id="bilhetes">
   <div class="container">
     <div class="sec-cab reveal">
-      <p class="kicker">07 · Bilhetes</p>
+      <p class="kicker">06 · Bilhetes</p>
       <h2>Garanta o seu lugar <em class="laranja">nesta sala.</em></h2>
       <p class="lead" style="margin-top:20px">Lotação limitada a 150 lugares, dos quais 125 em venda pública. Quando esgotarem, abrimos lista de espera.</p>
     </div>
@@ -1315,10 +1257,6 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
       <div class="faq-item">
         <button class="faq-pergunta" aria-expanded="false"><span>Recebo fatura do meu bilhete?</span><span class="faq-icone"><svg class="icone"><use href="#i-mais"/></svg></span></button>
         <div class="faq-resposta"><div class="faq-resposta-inner"><p>Sim. Após a confirmação da inscrição, recebe o documento comprovativo e a fatura eletrónica por email.</p></div></div>
-      <div class="faq-item">
-          <button class="faq-pergunta" aria-expanded="false"><span>H&aacute; m&uacute;sica ao vivo durante o dia?</span><span class="faq-icone"><svg class="icone"><use href="#i-mais"/></svg></span></button>
-          <div class="faq-resposta"><div class="faq-resposta-inner"><p>Sim. É o momento pensado para uma <strong>experiência sensorial</strong>: <strong>José Veloso Rito</strong> interpreta ao piano obras da sua autoria, e a música cruza-se com outras propostas preparadas para essa parte da tarde. Não é música de fundo nem entretenimento entre palestras. Está incluído no bilhete, sem custo adicional.</p></div></div>
-        </div>
       </div>
     </div>
   </div>
@@ -1387,6 +1325,22 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
           <p class="parceiro-papel">Patrocinador</p>
         </div>
       </div>
+
+      <div class="parceiro">
+        <img class="parceiro-logo" src="assets/wikit.png" alt="WIKIT, Lda" loading="lazy" width="180" height="163">
+        <div>
+          <p class="parceiro-nome">WIKIT, Lda</p>
+          <p class="parceiro-papel">Patrocinador</p>
+        </div>
+      </div>
+
+      <a class="parceiro" href="https://peakdriveauto.pt/" target="_blank" rel="noopener" aria-label="Visitar o site da Peak Drive Auto">
+        <img class="parceiro-logo" src="assets/peak-drive-auto.png" alt="Peak Drive Auto" loading="lazy" width="209" height="116">
+        <div>
+          <p class="parceiro-nome">Peak Drive Auto</p>
+          <p class="parceiro-papel">Oficina multimarca · Patrocinador</p>
+        </div>
+      </a>
 
       <a class="parceiro parceiro--vaga" href="https://wa.me/351916273645?text=Ol%C3%A1%2C%20gostava%20de%20saber%20como%20associar%20a%20minha%20empresa%20ao%20encontro%20Alta%20Performance%20Emocional." target="_blank" rel="noopener">
         <svg class="glifo"><use href="#i-whatsapp"/></svg>
