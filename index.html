@@ -478,17 +478,6 @@ body.menu-aberto .hamburger span:nth-child(3){transform:translateY(-7px) rotate(
   font-size:.93rem;color:var(--texto-suave);padding-block:5px;
 }
 .ticket-inclui .icone{width:15px;height:15px;flex:none;color:var(--laranja);margin-top:5px}
-/* contador */
-.contador{display:flex;align-items:center;gap:8px;margin-top:24px;flex-wrap:wrap}
-.contador-celula{text-align:center}
-.contador-num{
-  font-family:var(--serif);font-size:1.7rem;color:var(--tinta-3);
-  background:var(--prata-alto);border:1px solid var(--hair);border-radius:8px;
-  min-width:58px;padding:8px 6px;font-variant-numeric:tabular-nums;display:block;
-}
-.contador-rotulo{display:block;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-suave);margin-top:6px;font-weight:600}
-.contador-sep{font-family:var(--serif);color:var(--laranja);font-size:1.4rem;padding-bottom:20px}
-.contador-legenda{width:100%;font-size:.82rem;color:var(--texto-suave);margin-top:6px}
 .ticket .btn{margin-top:28px}
 /* talão destacável */
 .ticket-talao{
@@ -513,6 +502,7 @@ body.menu-aberto .hamburger span:nth-child(3){transform:translateY(-7px) rotate(
 .outra:first-child{padding-top:6px}
 .outra h3{font-size:1.35rem;color:var(--tinta-3)}
 .outra .preco{font-family:var(--serif);font-size:2.2rem;color:var(--tinta-1);line-height:1.1}
+.preco-unit{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--laranja);letter-spacing:.04em;margin-left:8px;white-space:nowrap}
 .outra p{font-size:.9rem;color:var(--texto-suave);margin-top:8px}
 .outra .btn{margin-top:16px}
 .outra:last-child{border-bottom:none}
@@ -639,19 +629,11 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
 @media(max-width:560px){
   .rodape-cols{grid-template-columns:1fr}
   /* O bilhete e' um grid 1fr + talao de 92px. Abaixo desta largura a coluna
-     do conteudo fica mais estreita do que o contador consegue encolher
-     (4 celulas + separadores), e o cartao cortava o que la estava dentro.
-     O talao destacavel e' decorativo, por isso e' o primeiro a sair. */
+     do conteudo fica estreita de mais e o cartao cortava o que la estava
+     dentro. O talao destacavel e' decorativo, por isso e' o primeiro a sair. */
   .ticket{grid-template-columns:minmax(0,1fr)}
   .ticket-talao{display:none}
-  /* o contador em flex nao desce abaixo de ~256px (4 celulas + separadores)
-     e o cartao cortava-o. Em grid de 4 colunas iguais ele acompanha a
-     largura disponivel, e os dois pontos deixam de ser precisos. */
-  .contador{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-  .contador-sep{display:none}
-  .contador-num{min-width:0;width:100%;font-size:1.35rem;padding:7px 2px}
-  .contador-legenda{grid-column:1/-1}
-  /* a etiqueta do Early Bird tem tracking largo e nao quebrava */
+  /* a etiqueta do bilhete tem tracking largo e nao quebrava */
   .ticket-tag{white-space:normal;line-height:1.5;text-align:left}
   /* alvos de toque: listas do rodape com area suficiente para o dedo */
   .rodape-cols ul{gap:2px}
@@ -1243,33 +1225,22 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
     </div>
 
     <div class="bilhetes-grid">
-      <!-- bilhete físico early bird -->
+      <!-- bilhete individual, preco unico -->
       <div class="ticket reveal">
         <div class="ticket-corpo">
-          <span class="ticket-tag"><svg class="glifo" style="color:var(--laranja-suave)"><use href="#i-glifo"/></svg> Early Bird · até 30 de setembro</span>
+          <span class="ticket-tag"><svg class="glifo" style="color:var(--laranja-suave)"><use href="#i-glifo"/></svg> Preço único · uma pessoa</span>
           <h3>Bilhete individual</h3>
           <div class="ticket-preco">
             <span class="valor">25 €</span>
-            <span class="antes">29 €</span>
           </div>
           <ul class="ticket-inclui">
-            <li><svg class="icone"><use href="#i-check"/></svg> Programa completo: os cinco movimentos, os cinco temas e os sete palestrantes</li>
+            <li><svg class="icone"><use href="#i-check"/></svg> Programa completo: os cinco movimentos, os cinco temas e as oito vozes do encontro</li>
             <li><svg class="icone"><use href="#i-check"/></svg> Pasta de trabalho e materiais dos exercícios práticos</li>
             <li><svg class="icone"><use href="#i-check"/></svg> Ferramenta dos 21 dias e compromisso mensurável</li>
             <li><svg class="icone"><use href="#i-check"/></svg> Café de boas-vindas e pausa de tarde</li>
             <li><svg class="icone"><use href="#i-check"/></svg> Dinâmica de grupo, meditação guiada e photocall</li>
             <li><svg class="icone"><use href="#i-check"/></svg> Documento comprovativo e fatura</li>
           </ul>
-          <div class="contador" id="contador">
-            <div class="contador-celula"><span class="contador-num" id="c-dias">--</span><span class="contador-rotulo">dias</span></div>
-            <span class="contador-sep">:</span>
-            <div class="contador-celula"><span class="contador-num" id="c-horas">--</span><span class="contador-rotulo">horas</span></div>
-            <span class="contador-sep">:</span>
-            <div class="contador-celula"><span class="contador-num" id="c-min">--</span><span class="contador-rotulo">min</span></div>
-            <span class="contador-sep">:</span>
-            <div class="contador-celula"><span class="contador-num" id="c-seg">--</span><span class="contador-rotulo">seg</span></div>
-            <span class="contador-legenda" id="contador-legenda">até ao fim do Early Bird</span>
-          </div>
           <a class="btn btn-tinta btn-bloco" href="https://buy.stripe.com/bJe00jfocaDr7hV3te7EQ01" target="_blank" rel="noopener">Garanta a sua participação · 25 €</a>
         </div>
         <div class="ticket-talao" aria-hidden="true">
@@ -1279,19 +1250,19 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
         </div>
       </div>
 
-      <!-- outras modalidades -->
+      <!-- vir acompanhada baixa o preco por pessoa -->
       <div class="outras reveal" style="transition-delay:.15s">
         <div class="outra">
-          <h3>Bilhete individual</h3>
-          <p class="preco">29 €</p>
-          <p>Válido a partir de 1 de outubro, após o fecho do Early Bird. Mesmo programa, mesma experiência.</p>
-          <p class="ticket-disponivel">Ainda n&atilde;o est&aacute; &agrave; venda. Fica dispon&iacute;vel a <strong>1 de outubro</strong>, quando terminar o Early Bird. At&eacute; l&aacute;, o mesmo programa custa 25&nbsp;&euro;.</p>
+          <h3>Bilhete duplo</h3>
+          <p class="preco">40 € <span class="preco-unit">20 € por pessoa</span></p>
+          <p>Dois lugares para quem não quer atravessar este dia sozinha. Poupam 10 € face a dois bilhetes individuais.</p>
+          <a class="btn btn-linha btn-mini" href="https://buy.stripe.com/14A7sLfoceTH31Fe7S7EQ03" target="_blank" rel="noopener">Reservar dois lugares</a>
         </div>
         <div class="outra">
-          <h3>Vem com um/a amigo/a</h3>
-          <p class="preco">49 € <span style="font-size:.95rem;font-family:var(--sans);color:var(--texto-suave);font-weight:400">o par</span></p>
-          <p>Dois lugares a preço de amizade, com poupança de 9 €. Porque a transformação compromete-se melhor a dois/duas.</p>
-          <a class="btn btn-linha btn-mini" href="https://buy.stripe.com/9B6fZh7VKcLzeKn4xi7EQ02" target="_blank" rel="noopener">Reservar dois lugares</a>
+          <h3>Bilhete triplo</h3>
+          <p class="preco">54 € <span class="preco-unit">18 € por pessoa</span></p>
+          <p>Três lugares ao melhor preço por pessoa. Poupam 21 € face a três bilhetes individuais.</p>
+          <a class="btn btn-linha btn-mini" href="https://buy.stripe.com/00wfZha3SfXLeKn7Ju7EQ04" target="_blank" rel="noopener">Reservar três lugares</a>
         </div>
       </div>
     </div>
@@ -1580,35 +1551,6 @@ footer{background:var(--tinta-3);color:var(--prata-alto)}
       if(!aberto){ item.classList.add("aberta"); btn.setAttribute("aria-expanded","true"); }
     });
   });
-
-  /* ---------- contagem decrescente do Early Bird ---------- */
-  const fimEarly = new Date("2026-09-30T23:59:59+01:00");
-  const p2 = n => String(n).padStart(2,"0");
-  let encerrado = false;
-  /* escreve so se o elemento existir: a linha do Early Bird foi retirada da
-     hero, e sem esta guarda o contador partia a cada segundo */
-  const escreve = (sel, txt) => { const el = $(sel); if (el) el.textContent = txt; };
-  function tique(){
-    let dif = fimEarly - new Date();
-    if(dif <= 0){
-      if(!encerrado){
-        encerrado = true;
-        escreve("#contador-legenda", "Early Bird encerrado · bilhete a 29 €");
-        escreve("#dias-early", "a promoção terminou");
-      }
-      return;
-    }
-    const d = Math.floor(dif/864e5);
-    const h = Math.floor(dif%864e5/36e5);
-    const m = Math.floor(dif%36e5/6e4);
-    const s = Math.floor(dif%6e4/1e3);
-    escreve("#c-dias",  p2(d));
-    escreve("#c-horas", p2(h));
-    escreve("#c-min",   p2(m));
-    escreve("#c-seg",   p2(s));
-    escreve("#dias-early", d > 0 ? "faltam "+d+(d===1?" dia":" dias") : "últimas horas");
-  }
-  tique(); setInterval(tique, 1000);
 
   /* ---------- toast ---------- */
   let toastTimer;
