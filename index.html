@@ -570,8 +570,10 @@ body.menu-aberto .hamburger span:nth-child(3){transform:translateY(-7px) rotate(
   background:var(--prata);border-top:1px solid var(--hair);
   padding-block:clamp(60px,9vh,110px);
 }
-.parceiros{display:flex;flex-wrap:wrap;gap:clamp(16px,2vw,24px);align-items:stretch}
-.parceiro{flex:0 1 254px}
+.parceiros{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:clamp(16px,2vw,24px);align-items:stretch;
+}
 .parceiro{
   background:#fff;border:1px solid var(--hair);border-radius:10px;
   padding:26px 24px 22px;text-align:center;
@@ -588,12 +590,15 @@ body.menu-aberto .hamburger span:nth-child(3){transform:translateY(-7px) rotate(
 }
 /* convite aberto, no mesmo formato dos cartoes, mas em tracejado */
 .parceiro--vaga{
+  grid-column:1/-1;
   background:transparent;border-style:dashed;border-color:var(--prata-3);
-  justify-content:center;text-decoration:none;
+  flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:6px 12px;padding:22px 24px;text-decoration:none;
 }
 .parceiro--vaga:hover{border-color:var(--laranja);box-shadow:none}
 .parceiro--vaga .parceiro-nome{color:var(--tinta-1)}
 .parceiro--vaga p{font-size:.92rem;color:var(--texto-suave)}
+.parceiro--vaga .parceiro-nome{line-height:1}
 .parceiro--vaga .glifo{width:20px;height:20px}
 
 /* ============================================================
