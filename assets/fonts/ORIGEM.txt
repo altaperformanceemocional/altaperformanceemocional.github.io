@@ -1,0 +1,8 @@
+Ficheiros descarregados de fonts.gstatic.com a partir deste pedido:
+
+https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Outfit:wght@300;400;500;600;700&display=swap
+
+Subsets guardados: latin, latin-ext. O vietnamese foi descartado por nao
+servir portugues. Para atualizar, voltar a pedir o CSS acima com um
+User-Agent de Chrome moderno, descarregar os woff2 de latin e latin-ext
+e regerar assets/fonts.css com os mesmos nomes de ficheiro.
